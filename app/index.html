@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- build:[ng-app]:e2e sn.example.e2e -->
+<html lang="en" ng-app="sn.example">
+<!-- /build -->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="fragment" content="!" />
+        <title>SOON_ AngularJS Template</title>
+        <!-- build:template
+        <base href="/">
+        /build -->
+        <!-- build:remove -->
+        <base href="/app/">
+        <!-- /build -->
+        <!-- build:css css/all.min.css -->
+        <link rel="stylesheet" href="css/all.css"/>
+        <!-- /build -->
+    </head>
+    <body>
+
+        <ng-view></ng-view>
+
+        <!-- build:js js/app.min.js -->
+        <script src="components/angular/angular.js"></script>
+        <script src="components/angular-route/angular-route.js"></script>
+
+        <script src="js/soon-example/app.js"></script>
+        <script src="js/soon-example/config.js"></script>
+        <script src="js/soon-example/controllers/SearchCtrl.js"></script>
+        <script src="js/soon-example/controllers/ResultsCtrl.js"></script>
+        <!-- /build -->
+        <!-- build:include:e2e ../tests/e2e/scripts.html --><!-- /build -->
+
+    </body>
+</html>

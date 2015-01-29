@@ -1,0 +1,13 @@
+logs/*
+!.gitkeep
+node_modules/
+app/components/
+docs/
+css/
+coverage/
+tmp
+.DS_Store
+.idea
+.grunt
+*.log
+_SpecRunner.html

@@ -1,0 +1,12 @@
+{
+    "vendor": [
+        "app/components/angular/angular.js",
+        "app/components/angular-route/angular-route.js"
+    ],
+    "application": [
+        "app/js/soon-example/app.js",
+        "app/js/soon-example/config.js",
+        "app/js/soon-example/controllers/SearchCtrl.js",
+        "app/js/soon-example/controllers/ResultsCtrl.js"
+    ]
+}
