@@ -1,8 +1,7 @@
 # Angular Skrollr 
 
-<!-- [![Build Status](https://travis-ci.org/thisissoon/angular-skrollr.svg?branch=master)](https://travis-ci.org/thisissoon/angular-skrollr) 
-[![Coverage Status](https://img.shields.io/coveralls/thisissoon/angular-skrollr.svg)](https://coveralls.io/r/thisissoon/angular-skrollr?branch=master)
-[![Sauce Test Status](https://saucelabs.com/buildstatus/angular-skrollr)](https://saucelabs.com/u/angular-skrollr) -->
+[![Build Status](https://travis-ci.org/thisissoon/angular-skrollr.svg?branch=master)](https://travis-ci.org/thisissoon/angular-skrollr)
+[![Coverage Status](https://coveralls.io/repos/thisissoon/angular-skrollr/badge.svg?branch=master)](https://coveralls.io/r/thisissoon/angular-skrollr?branch=master)
 
 This project structure is based on the [angular-seed](https://github.com/angular/angular-seed) application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 
