@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/thisissoon/angular-skrollr.svg?branch=master)](https://travis-ci.org/thisissoon/angular-skrollr)
 [![Coverage Status](https://coveralls.io/repos/thisissoon/angular-skrollr/badge.svg?branch=master)](https://coveralls.io/r/thisissoon/angular-skrollr?branch=master)
 
-Angular Skrollr wraps the skrollr.js library in an Angular friendly way; providing a mechanisim for refreshing skrollr when elements are loaded dynamically.
+Angular Skrollr wraps the skrollr.js library to provide a mechanisim for configuring skrollr and refreshing skrollr when the DOM is updated.
 
 
 ## Install
@@ -15,17 +15,22 @@ bower install skrollr
 
 ## Usage
 
-```html
-<!-- 1. add the sn-skrollr-init to body with skrollr init options -->
-<body sn-skrollr-init="{
-  forceHeight: false,
-  smoothScrolling: true,
-  mobileDeceleration: 0.004
-}">
-  ...
-</body>
+```js
+// 1. configure skrollr in your apps config
+var myApp = angular.module('myApp', []);
+myApp.config(["snSkrollrProvider", function(snSkrollrProvider) {
+  snSkrollrProvider.init({ smoothScrolling: true, ... });
+}]);
 
-<!-- 2. add the sn-skrollr directive, along with skrollr animation attributes, to the elements you wish to animate -->
+// 2. initialise skrollr at runtime
+myApp.run(["snSkrollr", function(snSkrollr) {
+  snSkrollr.init();
+}])
+
+```
+
+```html
+<!-- 3. add the sn-skrollr directive, along with skrollr animation attributes, to the elements you wish to animate -->
 <div
   sn-skrollr
   data-100p-top="transform: translateY(900px)"
