@@ -13,7 +13,7 @@ angular.module("sn.skrollr", [])
 
     var _this = this;
 
-    this.init = {};
+    this.config = {};
 
     this.$get = [
         "$window",
@@ -33,7 +33,7 @@ angular.module("sn.skrollr", [])
 
                     angular.element($window).bind('load', function() {
                         $rootScope.$apply(function() {
-                            var s = $window.skrollr.init(_this.init);
+                            var s = $window.skrollr.init(_this.config);
                             defer.resolve(s);
                         });
                     });

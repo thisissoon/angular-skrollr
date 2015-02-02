@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/thisissoon/angular-skrollr.svg?branch=master)](https://travis-ci.org/thisissoon/angular-skrollr)
 [![Coverage Status](https://coveralls.io/repos/thisissoon/angular-skrollr/badge.svg?branch=master)](https://coveralls.io/r/thisissoon/angular-skrollr?branch=master)
 
-Angular Skrollr wraps the skrollr.js library to provide a mechanisim for configuring skrollr and refreshing skrollr when the DOM is updated.
+Angular Skrollr wraps the skrollr.js library to provide a mechanisim for configuring, initialising skrollr and calling skrollr.refresh() when the DOM is updated.
 
 
 ## Install
@@ -19,7 +19,7 @@ bower install skrollr
 // 1. configure skrollr in your apps config
 var myApp = angular.module('myApp', []);
 myApp.config(["snSkrollrProvider", function(snSkrollrProvider) {
-  snSkrollrProvider.init({ smoothScrolling: true, ... });
+  snSkrollrProvider.config({ smoothScrolling: true, ... });
 }]);
 
 // 2. initialise skrollr at runtime
