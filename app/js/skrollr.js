@@ -1,23 +1,23 @@
 "use strict";
 /**
- * Refresh skrollrjs on element load
+ * Refresh skrollrjs on element init
  * @author SOON_
  * @module sn.skrollr
  * @class  snSkrollr
  */
-angular.module("sn.skrollr").directive("snSkrollr", [
-    "snSkrollrService",
+angular.module("sn.skrollr", [])
+
+.directive("snSkrollr", [
+    "$window",
     /**
      * @constructor
      */
-    function (snSkrollrService){
+    function ($window){
         return {
             restrict: "A",
             link: function($scope, $element) {
-                snSkrollrService.skrollr().then(function(skrollr){
-                    skrollr.refresh();
-                });
+                $window.skrollr.refresh();
             }
-        };
+        }
     }
 ]);
