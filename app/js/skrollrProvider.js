@@ -18,27 +18,22 @@ angular.module("sn.skrollr", [])
     this.$get = [
         "$window",
         "$rootScope",
-        "$q",
         /**
          * @constructor
          * @param   {Object}  $window    angular wrapper for window
          * @param   {Object}  $rootScope angular root application scope
-         * @param   {Service} $q         asynchronous promise/defer library
          */
         function($window, $rootScope, $q) {
 
             return {
                 init: function() {
-                    var defer = $q.defer();
 
                     angular.element($window).bind('load', function() {
                         $rootScope.$apply(function() {
                             var s = $window.skrollr.init(_this.config);
-                            defer.resolve(s);
                         });
                     });
 
-                    return defer.promise;
                 }
             }
         }
