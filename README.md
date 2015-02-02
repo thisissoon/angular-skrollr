@@ -1,4 +1,4 @@
-# Angular Skrollr 
+# Angular Skrollr
 
 [![Build Status](https://travis-ci.org/thisissoon/angular-skrollr.svg?branch=master)](https://travis-ci.org/thisissoon/angular-skrollr)
 [![Coverage Status](https://coveralls.io/repos/thisissoon/angular-skrollr/badge.svg?branch=master)](https://coveralls.io/r/thisissoon/angular-skrollr?branch=master)
@@ -10,12 +10,22 @@ Angular Skrollr wraps the skrollr.js library in an Angular friendly way; providi
 
 ```
 bower install angular-skrollr
+bower install skrollr
 ```
 
 ## Usage
 
 ```html
-<!-- add the sn-skrollr directive, along with skrollr animation attributes -->
+<!-- 1. add the sn-skrollr-init to body with skrollr init options -->
+<body sn-skrollr-init="{
+  forceHeight: false,
+  smoothScrolling: true,
+  mobileDeceleration: 0.004
+}">
+  ...
+</body>
+
+<!-- 2. add the sn-skrollr directive, along with skrollr animation attributes, to the elements you wish to animate -->
 <div
   sn-skrollr
   data-100p-top="transform: translateY(900px)"
@@ -59,7 +69,7 @@ We have two kinds of dependencies in this project: tools and angular framework c
 The following tools require super user privileges so you will need to install them separately like so:
 
 ```
-sudo npm install -g bower 
+sudo npm install -g bower
 sudo npm install -g grunt-cli
 ```
 
@@ -122,11 +132,11 @@ To watch all files run:
 grunt serverall
 ```
 
-To run tests or compile less to css when the relevent files are updated. 
+To run tests or compile less to css when the relevent files are updated.
 
 ### Running the build script
 
-To create a build to deploy for a production environment simply run: 
+To create a build to deploy for a production environment simply run:
 
 ```
 grunt build
@@ -147,15 +157,15 @@ app/                    --> all of the files to be used in production
       {app}.js          --> angular module initialisation
       config.js         --> angular module config
       controllers/      --> controllers
-        {view}Ctrl.js   
+        {view}Ctrl.js
       directives/       --> directives
-        {module}.js     
+        {module}.js
 modules/                --> static html files for building and testing styling and mark up
   {module}/
     index.html
 tests/                  --> test config and source files
   e2e/                  --> end-to-end specs
-    specs/              
+    specs/
       scenarios.js
     protractor.conf.js  --> config file for running e2e tests with Protractor
   unit/                 --> unit level specs/tests
@@ -221,7 +231,7 @@ grunt e2e
 ```
 
 Behind the scenes this will also run `webdriver-manager update && webdriver-manager start`. This will download and install the latest version of the stand-alone WebDriver tool and start the Selenium web server. This script will execute the end-to-end tests against the application being hosted on the
-development server. 
+development server.
 
 
 ## Contact
