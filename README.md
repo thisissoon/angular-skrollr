@@ -3,6 +3,30 @@
 [![Build Status](https://travis-ci.org/thisissoon/angular-skrollr.svg?branch=master)](https://travis-ci.org/thisissoon/angular-skrollr)
 [![Coverage Status](https://coveralls.io/repos/thisissoon/angular-skrollr/badge.svg?branch=master)](https://coveralls.io/r/thisissoon/angular-skrollr?branch=master)
 
+Angular Skrollr wraps the skrollr.js library in an Angular friendly way; providing a mechanisim for refreshing skrollr when elements are loaded dynamically.
+
+
+## Install
+
+```
+bower install angular-skrollr
+```
+
+## Usage
+
+```html
+<!-- add the sn-skrollr directive, along with skrollr animation attributes -->
+<div
+  sn-skrollr
+  data-100p-top="transform: translateY(900px)"
+  data-top="transform: translateY(0px)"
+  data--100p-top="transform: translateY(-900px)"
+>
+  ...
+</div>
+```
+
+
 This project structure is based on the [angular-seed](https://github.com/angular/angular-seed) application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 
 The project is preconfigured to install the Angular framework and a bunch of development and testing tools for instant web development gratification.
@@ -117,22 +141,6 @@ The build files will then be in the `dist/` directory.
 
 app/                    --> all of the files to be used in production
   components/           --> all of our javascript libraries (installed using bower)
-  css/                  --> css files
-    app.css             --> default stylesheet (generated using less)
-  img/                  --> image files
-  less/                 --> less folder
-    default/            --> styling appied to all screen sizes (e.g. fonts, colors etc..)
-      core/             --> core styling applied to all screen sizes 
-      modules/          --> module styling applied to all screen sizes
-    large/              --> styling appied to large screen screen sizes (overrides styling in default folder)
-      core/             --> core styling applied to large screen screen sizes
-      modules/          --> module styling applied to large screen screen sizes 
-    tablet/             --> styling appied to tablet screen sizes (overrides styling in default folder)
-      core/             --> core styling applied to tablet screens 
-      modules/          --> module styling applied to tablet screens
-    mobile/             --> styling appied to mobile screen sizes (overrides styling in default folder)
-      core/             --> core styling applied to mobile screens 
-      modules/          --> module styling applied to mobile screens  
   index.html            --> app layout file (the main html template file of the app)
   js/                   --> javascript files
     {app}/              --> angular module javascript files
@@ -142,9 +150,6 @@ app/                    --> all of the files to be used in production
         {view}Ctrl.js   
       directives/       --> directives
         {module}.js     
-    partials/           --> angular view partials (partial html templates)
-      partial1.html
-      partial2.html
 modules/                --> static html files for building and testing styling and mark up
   {module}/
     index.html
