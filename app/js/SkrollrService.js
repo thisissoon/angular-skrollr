@@ -4,39 +4,40 @@
  * @author SOON_
  * @module sn.skrollr
  * @class  snSkrollrService
+ * @example
+ *      snSkrollrService.skrollr(init)
  */
 angular.module("sn.skrollr").service("snSkrollrService", [
+    "$document",
     "$q",
     "$rootScope",
     "$window",
     /**
      * @constructor
+     * @param   {Object}  $document  angular wrapper for document
      * @param   {Service} $q         promise service
      * @param   {Object}  $rootScope data on rootScope
      * @param   {Object}  $window    angular wrapper for window object
      */
-    function($q, $rootScope, $window){
+    function($document, $q, $rootScope, $window){
 
         var defer = $q.defer();
 
-        var onScriptLoad = function onScriptLoad() {
-            // Load skrollr.js in the browser
+        var onScriptLoad = function onScriptLoad(init) {
             $rootScope.$apply(function() {
-                var s = $window.skrollr.init({
-                        forceHeight: false,
-                        smoothScrolling: true,
-                        mobileDeceleration: 0.004
-                    });
+                var s = $window.skrollr.init(init);
                 defer.resolve(s);
             });
         }
 
-        angular.element($window).bind('load', function() {
-            onScriptLoad();
-        });
-
         return {
-            skrollr: function() { return defer.promise; }
+            skrollr: function(init) {
+                angular.element($window).bind('load', function() {
+                    onScriptLoad(init);
+                });
+
+                return defer.promise;
+            }
         };
 
     }
