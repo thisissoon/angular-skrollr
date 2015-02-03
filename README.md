@@ -1,7 +1,46 @@
-# Angular Skrollr 
+# Angular Skrollr
 
 [![Build Status](https://travis-ci.org/thisissoon/angular-skrollr.svg?branch=master)](https://travis-ci.org/thisissoon/angular-skrollr)
 [![Coverage Status](https://coveralls.io/repos/thisissoon/angular-skrollr/badge.svg?branch=master)](https://coveralls.io/r/thisissoon/angular-skrollr?branch=master)
+
+Angular Skrollr wraps the skrollr.js library to provide a mechanisim for configuring, initialising skrollr and calling skrollr.refresh() when the DOM is updated.
+
+
+## Install
+
+```
+bower install angular-skrollr
+bower install skrollr
+```
+
+## Usage
+
+```js
+// 1. configure skrollr in your apps config
+var myApp = angular.module('myApp', []);
+myApp.config(["snSkrollrProvider", function(snSkrollrProvider) {
+  snSkrollrProvider.config({ smoothScrolling: true, ... });
+}]);
+
+// 2. initialise skrollr at runtime
+myApp.run(["snSkrollr", function(snSkrollr) {
+  snSkrollr.init();
+}])
+
+```
+
+```html
+<!-- 3. add the sn-skrollr directive, along with skrollr animation attributes, to the elements you wish to animate -->
+<div
+  sn-skrollr
+  data-100p-top="transform: translateY(900px)"
+  data-top="transform: translateY(0px)"
+  data--100p-top="transform: translateY(-900px)"
+>
+  ...
+</div>
+```
+
 
 This project structure is based on the [angular-seed](https://github.com/angular/angular-seed) application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 
@@ -35,7 +74,7 @@ We have two kinds of dependencies in this project: tools and angular framework c
 The following tools require super user privileges so you will need to install them separately like so:
 
 ```
-sudo npm install -g bower 
+sudo npm install -g bower
 sudo npm install -g grunt-cli
 ```
 
@@ -98,11 +137,11 @@ To watch all files run:
 grunt serverall
 ```
 
-To run tests or compile less to css when the relevent files are updated. 
+To run tests or compile less to css when the relevent files are updated.
 
 ### Running the build script
 
-To create a build to deploy for a production environment simply run: 
+To create a build to deploy for a production environment simply run:
 
 ```
 grunt build
@@ -117,40 +156,21 @@ The build files will then be in the `dist/` directory.
 
 app/                    --> all of the files to be used in production
   components/           --> all of our javascript libraries (installed using bower)
-  css/                  --> css files
-    app.css             --> default stylesheet (generated using less)
-  img/                  --> image files
-  less/                 --> less folder
-    default/            --> styling appied to all screen sizes (e.g. fonts, colors etc..)
-      core/             --> core styling applied to all screen sizes 
-      modules/          --> module styling applied to all screen sizes
-    large/              --> styling appied to large screen screen sizes (overrides styling in default folder)
-      core/             --> core styling applied to large screen screen sizes
-      modules/          --> module styling applied to large screen screen sizes 
-    tablet/             --> styling appied to tablet screen sizes (overrides styling in default folder)
-      core/             --> core styling applied to tablet screens 
-      modules/          --> module styling applied to tablet screens
-    mobile/             --> styling appied to mobile screen sizes (overrides styling in default folder)
-      core/             --> core styling applied to mobile screens 
-      modules/          --> module styling applied to mobile screens  
   index.html            --> app layout file (the main html template file of the app)
   js/                   --> javascript files
     {app}/              --> angular module javascript files
       {app}.js          --> angular module initialisation
       config.js         --> angular module config
       controllers/      --> controllers
-        {view}Ctrl.js   
+        {view}Ctrl.js
       directives/       --> directives
-        {module}.js     
-    partials/           --> angular view partials (partial html templates)
-      partial1.html
-      partial2.html
+        {module}.js
 modules/                --> static html files for building and testing styling and mark up
   {module}/
     index.html
 tests/                  --> test config and source files
   e2e/                  --> end-to-end specs
-    specs/              
+    specs/
       scenarios.js
     protractor.conf.js  --> config file for running e2e tests with Protractor
   unit/                 --> unit level specs/tests
@@ -216,7 +236,7 @@ grunt e2e
 ```
 
 Behind the scenes this will also run `webdriver-manager update && webdriver-manager start`. This will download and install the latest version of the stand-alone WebDriver tool and start the Selenium web server. This script will execute the end-to-end tests against the application being hosted on the
-development server. 
+development server.
 
 
 ## Contact
