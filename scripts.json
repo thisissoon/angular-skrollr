@@ -3,8 +3,6 @@
         "app/components/angular/angular.js"
     ],
     "application": [
-        "app/js/app.js",
-        "app/js/skrollr.js",
-        "app/js/skrollrProvider.js"
+        "app/js/skrollr.js"
     ]
 }
