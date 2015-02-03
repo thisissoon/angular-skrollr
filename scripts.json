@@ -5,6 +5,6 @@
     "application": [
         "app/js/app.js",
         "app/js/skrollr.js",
-        "app/js/SkrollrService.js"
+        "app/js/skrollrProvider.js"
     ]
 }

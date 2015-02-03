@@ -18,6 +18,6 @@ angular.module("sn.skrollr", [])
             link: function($scope, $element) {
                 $window.skrollr.refresh();
             }
-        }
+        };
     }
 ]);

@@ -28,14 +28,14 @@ angular.module("sn.skrollr", [])
             return {
                 init: function() {
 
-                    angular.element($window).bind('load', function() {
+                    angular.element($window).bind("load", function() {
                         $rootScope.$apply(function() {
                             var s = $window.skrollr.init(_this.config);
                         });
                     });
 
                 }
-            }
+            };
         }
     ];
 });
