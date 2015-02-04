@@ -276,7 +276,8 @@ module.exports = function (grunt) {
                 commitMessage: "Release v%VERSION%",
                 commitFiles: ["package.json", "bower.json"],
                 createTag: false,
-                push: false
+                push: true,
+                pushTo: "upstream"
             }
         }
 
