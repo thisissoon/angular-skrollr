@@ -10,3 +10,14 @@ script:
   - grunt test
 after_success:
   - ./node_modules/coveralls/bin/coveralls.js < coverage/lcov.info
+before_deploy:
+  - grunt build
+deploy:
+  provider: releases
+  api-key: "3c2ca04e36120694a707ef9b99fd07f94bce1f1c"
+  file:
+  - "./dist"
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branch: true
