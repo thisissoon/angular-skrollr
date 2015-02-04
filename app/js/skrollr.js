@@ -29,17 +29,30 @@ angular.module("sn.skrollr", [])
          */
         function($window, $document, $rootScope) {
 
-            return {
+            var s,
+                serviceMethods,
+                init = 0;
+
+            serviceMethods = {
                 init: function() {
 
                     $document.ready(function () {
                         $rootScope.$apply(function() {
-                            var s = $window.skrollr.init(_this.config);
+                            s = $window.skrollr.init(_this.config);
+                            init = 1;
+                            serviceMethods.refresh();
                         });
                     });
 
+                },
+                refresh: function() {
+                    if (init === 1) {
+                        s.refresh();
+                    }
                 }
             };
+
+            return serviceMethods;
         }
     ];
 })
@@ -49,15 +62,15 @@ angular.module("sn.skrollr", [])
  * @class  snSkrollr
  */
 .directive("snSkrollr", [
-    "$window",
+    "snSkrollr",
     /**
      * @constructor
      */
-    function ($window){
+    function (snSkrollr){
         return {
             restrict: "AE",
             link: function($scope, $element) {
-                $window.skrollr.refresh();
+                snSkrollr.refresh();
             }
         };
     }
