@@ -267,8 +267,18 @@ module.exports = function (grunt) {
                     outdir: "docs/"
                 }
             }
-        }
+        },
 
+        bump: {
+            options: {
+                files: ["package.json", "bower.json"],
+                commit: true,
+                commitMessage: "Release v%VERSION%",
+                commitFiles: ["package.json", "bower.json"],
+                createTag: false,
+                push: false
+            }
+        }
 
     });
 
@@ -285,6 +295,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-protractor-runner");
     grunt.loadNpmTasks("grunt-protractor-webdriver");
     grunt.loadNpmTasks("grunt-processhtml");
+    grunt.loadNpmTasks("grunt-bump");
 
     grunt.registerTask("build", [
         "clean:beforeBuild",
@@ -293,6 +304,11 @@ module.exports = function (grunt) {
         "uglify",
         "jasmine:production",
         "yuidoc"
+    ]);
+
+    grunt.registerTask("release", [
+        "build",
+        "bump"
     ]);
 
     grunt.registerTask("server", [
