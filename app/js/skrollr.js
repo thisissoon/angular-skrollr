@@ -43,17 +43,19 @@ angular.module("sn.skrollr", [])
                  */
                 init: function() {
 
+                    var skrollrInit = function skrollrInit(){
+                        _this.skrollrInstance = $window.skrollr.init(_this.config);
+                        _this.hasBeenInitialised = true;
+                        _this.serviceMethods.refresh();
+                    };
+
                     $document.ready(function () {
                         if (!$rootScope.$$phase) {
                             $rootScope.$apply(function() {
-                                _this.skrollrInstance = $window.skrollr.init(_this.config);
-                                _this.hasBeenInitialised = true;
-                                _this.serviceMethods.refresh();
+                                skrollrInit();
                             });
                         } else {
-                            _this.skrollrInstance = $window.skrollr.init(_this.config);
-                            _this.hasBeenInitialised = true;
-                            _this.serviceMethods.refresh();
+                            skrollrInit();
                         }
                     });
 
