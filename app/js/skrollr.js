@@ -9,7 +9,7 @@ angular.module("sn.skrollr", [])
 /**
  * Provider to configuring skrollr
  * @example
- *      snSkrollrProvider.init({ smoothScrolling: true });
+ *      snSkrollrProvider.config({ smoothScrolling: true });
  *      snSkrollr.init();
  */
 .provider("snSkrollr", function snSkrollrProvider() {
@@ -31,6 +31,7 @@ angular.module("sn.skrollr", [])
         /**
          * @constructor
          * @param   {Object}  $window    angular wrapper for window
+         * @param   {Object}  $document  angular wrapper for document
          * @param   {Object}  $rootScope angular root application scope
          */
         function($window, $document, $rootScope) {
@@ -38,8 +39,8 @@ angular.module("sn.skrollr", [])
             _this.serviceMethods = {
 
                 /**
-                 * [[Description]]
-                 * @method
+                 * Initialise skrollrjs with config options
+                 * @method init
                  */
                 init: function() {
 
@@ -60,6 +61,12 @@ angular.module("sn.skrollr", [])
                     });
 
                 },
+
+                /**
+                 * Call refresh on Skrollr instance
+                 * Useful for resetting skrollr after modifying the DOM
+                 * @method refresh
+                 */
                 refresh: function() {
                     if (_this.hasBeenInitialised) {
                         _this.skrollrInstance.refresh();
