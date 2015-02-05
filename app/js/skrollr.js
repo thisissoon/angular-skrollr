@@ -18,6 +18,12 @@ angular.module("sn.skrollr", [])
 
     this.config = {};
 
+    this.skrollrInstance = {};
+
+    this.hasBeenInitialised = false;
+
+    this.serviceMethods = {};
+
     this.$get = [
         "$window",
         "$document",
@@ -29,30 +35,37 @@ angular.module("sn.skrollr", [])
          */
         function($window, $document, $rootScope) {
 
-            var s,
-                serviceMethods,
-                init = 0;
+            _this.serviceMethods = {
 
-            serviceMethods = {
+                /**
+                 * [[Description]]
+                 * @method
+                 */
                 init: function() {
 
                     $document.ready(function () {
-                        $rootScope.$apply(function() {
-                            s = $window.skrollr.init(_this.config);
-                            init = 1;
-                            serviceMethods.refresh();
-                        });
+                        if (!$rootScope.$$phase) {
+                            $rootScope.$apply(function() {
+                                _this.skrollrInstance = $window.skrollr.init(_this.config);
+                                _this.hasBeenInitialised = true;
+                                _this.serviceMethods.refresh();
+                            });
+                        } else {
+                            _this.skrollrInstance = $window.skrollr.init(_this.config);
+                            _this.hasBeenInitialised = true;
+                            _this.serviceMethods.refresh();
+                        }
                     });
 
                 },
                 refresh: function() {
-                    if (init === 1) {
-                        s.refresh();
+                    if (_this.hasBeenInitialised) {
+                        _this.skrollrInstance.refresh();
                     }
                 }
             };
 
-            return serviceMethods;
+            return _this.serviceMethods;
         }
     ];
 })
