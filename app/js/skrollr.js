@@ -52,9 +52,7 @@ angular.module("sn.skrollr", [])
 
                     $document.ready(function () {
                         if (!$rootScope.$$phase) {
-                            $rootScope.$apply(function() {
-                                skrollrInit();
-                            });
+                            $rootScope.$apply(skrollrInit);
                         } else {
                             skrollrInit();
                         }
