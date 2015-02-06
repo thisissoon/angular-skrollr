@@ -16,14 +16,33 @@ angular.module("sn.skrollr", [])
 
     var _this = this;
 
+    /**
+     * Skrollr initialisation options
+     * @property {Object} config
+     */
     this.config = {};
 
+    /**
+     * Instance of Skrollr
+     * @property {Object}  skrollrInstance
+     */
     this.skrollrInstance = {};
 
+    /**
+     * Has the skrollInstance been initialised
+     * @property {Boolean} hasBeenInitialised
+     */
     this.hasBeenInitialised = false;
 
+    /**
+     * Methods returned on snSkrollr service
+     * @property {Object} serviceMethods
+     */
     this.serviceMethods = {};
 
+    /**
+     * snSkroller service
+     */
     this.$get = [
         "$window",
         "$document",
