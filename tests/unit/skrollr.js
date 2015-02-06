@@ -2,7 +2,7 @@
 
 describe("snSkrollrProvider", function () {
 
-    var serviceProvider, $window, $document, spy, scope, rootScope, snSkrollr;
+    var serviceProvider, $window, $document, spy, scope, rootScope, snSkrollr, refresh, skrollrInstance;
 
     beforeEach(function () {
 
@@ -19,16 +19,22 @@ describe("snSkrollrProvider", function () {
             scope = $rootScope.$new();
             rootScope = $rootScope;
 
+            snSkrollr = $injector.get("snSkrollr");
+
             $window = $injector.get("$window");
             $window.skrollr = {
-                init: function() { return }
+                init: function() {
+                    return {
+                        refresh: function(){}
+                    };
+                }
             }
             spy = spyOn($window.skrollr, "init");
+            spy.and.callThrough();
 
             $document = $injector.get("$document");
             $document.ready = function(fn){ fn.call(this); }
 
-            snSkrollr = $injector.get("snSkrollr");
         });
 
     });
@@ -46,18 +52,18 @@ describe("snSkrollrProvider", function () {
 });
 
 describe("directive: snSkrollr", function() {
-    var element, scope, isolatedScope, $window, spy;
+    var element, scope, isolatedScope, snSkrollr, spy;
 
     beforeEach(module("sn.skrollr"));
 
     beforeEach(inject(function ($rootScope, $compile, $injector) {
         scope = $rootScope.$new();
 
-        $window = $injector.get("$window");
-        $window.skrollr = {
+        snSkrollr = $injector.get("snSkrollr");
+        snSkrollr.skrollr = {
             refresh: function() { return }
         }
-        spy = spyOn($window.skrollr, "refresh");
+        spy = spyOn(snSkrollr, "refresh");
 
         element =
             "<sn-skrollr>" +
