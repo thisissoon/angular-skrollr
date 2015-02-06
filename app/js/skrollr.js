@@ -88,6 +88,17 @@ angular.module("sn.skrollr", [])
                     if (_this.hasBeenInitialised) {
                         _this.skrollrInstance.refresh();
                     }
+                },
+
+                /**
+                 * Call skrollr.destroy()
+                 * @method refresh
+                 */
+                destroy: function() {
+                    if (_this.hasBeenInitialised) {
+                        $window.skrollr.destroy();
+                        _this.hasBeenInitialised = false;
+                    }
                 }
             };
 
