@@ -16,14 +16,33 @@ angular.module("sn.skrollr", [])
 
     var _this = this;
 
+    /**
+     * Skrollr initialisation options
+     * @property {Object} config
+     */
     this.config = {};
 
+    /**
+     * Instance of Skrollr
+     * @property {Object}  skrollrInstance
+     */
     this.skrollrInstance = {};
 
+    /**
+     * Has the skrollInstance been initialised
+     * @property {Boolean} hasBeenInitialised
+     */
     this.hasBeenInitialised = false;
 
+    /**
+     * Methods returned on snSkrollr service
+     * @property {Object} serviceMethods
+     */
     this.serviceMethods = {};
 
+    /**
+     * snSkroller service
+     */
     this.$get = [
         "$window",
         "$document",
@@ -68,6 +87,17 @@ angular.module("sn.skrollr", [])
                 refresh: function() {
                     if (_this.hasBeenInitialised) {
                         _this.skrollrInstance.refresh();
+                    }
+                },
+
+                /**
+                 * Call skrollr.destroy()
+                 * @method refresh
+                 */
+                destroy: function() {
+                    if (_this.hasBeenInitialised) {
+                        $window.skrollr.destroy();
+                        _this.hasBeenInitialised = false;
                     }
                 }
             };

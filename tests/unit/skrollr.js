@@ -2,7 +2,7 @@
 
 describe("snSkrollrProvider", function () {
 
-    var serviceProvider, $window, $document, spy, scope, rootScope, snSkrollr, refresh, skrollrInstance;
+    var serviceProvider, $window, $document, spy, destroy, scope, rootScope, snSkrollr, refresh, skrollrInstance;
 
     beforeEach(function () {
 
@@ -27,10 +27,14 @@ describe("snSkrollrProvider", function () {
                     return {
                         refresh: function(){}
                     };
-                }
+                },
+                destroy: function() {}
             }
             spy = spyOn($window.skrollr, "init");
             spy.and.callThrough();
+
+            destroy = spyOn($window.skrollr, "destroy");
+            destroy.and.callThrough();
 
             $document = $injector.get("$document");
             $document.ready = function(fn){ fn.call(this); }
@@ -47,6 +51,25 @@ describe("snSkrollrProvider", function () {
 
         snSkrollr.init();
         expect(spy).toHaveBeenCalled();
+        expect(serviceProvider.hasBeenInitialised).toEqual(true);
+    });
+
+    it("should call skrollr destroy", function () {
+
+        serviceProvider.hasBeenInitialised = true;
+        snSkrollr.destroy();
+        expect(destroy).toHaveBeenCalled();
+        expect(serviceProvider.hasBeenInitialised).toEqual(false);
+
+    });
+
+    it("should not call skrollr destroy if skrollr hasn't been initialised", function () {
+
+        serviceProvider.hasBeenInitialised = false;
+        snSkrollr.destroy();
+        expect(destroy).not.toHaveBeenCalled();
+        expect(serviceProvider.hasBeenInitialised).toEqual(false);
+
     });
 
 });
