@@ -1,3 +1,7 @@
+## Changes in 0.0.3
+
+ * @jamesjwarren: Feature: destroy (#7)
+
 ## Changes in 0.0.2
 
  * @eopa: Feature/fix travis deployment config (#6)
