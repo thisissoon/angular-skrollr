@@ -10,15 +10,3 @@ script:
   - grunt test
 after_success:
   - ./node_modules/coveralls/bin/coveralls.js < coverage/lcov.info
-before_deploy:
-  - grunt release --setversion=$TRAVIS_TAG
-deploy:
-  provider: releases
-  api_key:
-    secure: NOSOp8AMc7FuPAvWE9itmwHT3yN2faEStB4R7u5lD8/k2ICWjaPOFxRAlUOLJL3KGk2eav4UpOC7Qz/EGR8Y3SciXuu5CPn/5bluUFqLzzolRSbGt4iWz5hDNdNcbePSqT8r9eKfizLSkM4UFhFdFEfUzERYFUSi5FO4BdoKcZI=
-  file: ./dist
-  skip_cleanup: true
-  on:
-    repo: thisissoon/angular-skrollr
-    tags: true
-    all_branches: true
