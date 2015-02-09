@@ -272,10 +272,10 @@ module.exports = function (grunt) {
         bump: {
             options: {
                 files: ["package.json", "bower.json"],
+                updateConfigs: ["pkg"],
                 commit: true,
-                commitMessage: "Release v%VERSION%",
-                commitFiles: ["package.json", "bower.json"],
-                createTag: false,
+                commitFiles: ["-a"],
+                createTag: true,
                 push: true,
                 pushTo: "upstream"
             }
