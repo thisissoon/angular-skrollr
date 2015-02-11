@@ -1,3 +1,4 @@
+/*! angular-skrollr - v0.0.4 - 2015-02-11 */
 "use strict";
 /**
  * Wrap skrollr.js
@@ -96,7 +97,7 @@ angular.module("sn.skrollr", [])
                  */
                 destroy: function() {
                     if (_this.hasBeenInitialised) {
-                        $window.skrollr.destroy();
+                        _this.skrollrInstance.destroy();
                         _this.hasBeenInitialised = false;
                     }
                 }

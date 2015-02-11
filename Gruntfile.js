@@ -267,23 +267,14 @@ module.exports = function (grunt) {
         },
 
         bump: {
-            beforeRelease: {
-                options: {
-                    files: ["package.json", "bower.json"],
-                    updateConfigs: ["pkg"],
-                    commit: false,
-                    createTag: false,
-                    push: false
-                }
-            },
-            afterRelease: {
-                options: {
-                    commit: true,
-                    commitFiles: ["-a"],
-                    createTag: true,
-                    push: true,
-                    pushTo: "origin master"
-                }
+            options: {
+                files: ["package.json", "bower.json"],
+                updateConfigs: ["pkg"],
+                commit: true,
+                commitFiles: ["-a"],
+                createTag: true,
+                push: true,
+                pushTo: "origin master"
             }
         }
 
@@ -313,9 +304,9 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("release", [
-        "bump:beforeRelease",
+        "bump-only",
         "build",
-        "bump:afterRelease"
+        "bump-commit"
     ]);
 
     grunt.registerTask("server", [
