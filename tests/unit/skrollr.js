@@ -25,16 +25,13 @@ describe("snSkrollrProvider", function () {
             $window.skrollr = {
                 init: function() {
                     return {
-                        refresh: function(){}
+                        refresh: function(){},
+                        destroy: function(){}
                     };
-                },
-                destroy: function() {}
+                }
             }
             spy = spyOn($window.skrollr, "init");
             spy.and.callThrough();
-
-            destroy = spyOn($window.skrollr, "destroy");
-            destroy.and.callThrough();
 
             $document = $injector.get("$document");
             $document.ready = function(fn){ fn.call(this); }
@@ -50,25 +47,35 @@ describe("snSkrollrProvider", function () {
     it("should call skrollr init", function () {
 
         snSkrollr.init();
-        expect(spy).toHaveBeenCalled();
+        expect(spy).toHaveBeenCalledWith({ smoothScrolling: true });
         expect(serviceProvider.hasBeenInitialised).toEqual(true);
     });
 
-    it("should call skrollr destroy", function () {
+    it("should call destroy on skrollr instance", function () {
 
-        serviceProvider.hasBeenInitialised = true;
+        snSkrollr.init();
+        destroy = spyOn(serviceProvider.skrollrInstance, "destroy");
         snSkrollr.destroy();
         expect(destroy).toHaveBeenCalled();
         expect(serviceProvider.hasBeenInitialised).toEqual(false);
 
     });
 
-    it("should not call skrollr destroy if skrollr hasn't been initialised", function () {
+    it("should not call destroy if skrollr hasn't been initialised", function () {
 
         serviceProvider.hasBeenInitialised = false;
         snSkrollr.destroy();
-        expect(destroy).not.toHaveBeenCalled();
+        expect(serviceProvider.skrollrInstance.destroy).toBe(undefined);
         expect(serviceProvider.hasBeenInitialised).toEqual(false);
+
+    });
+
+    it("should call refresh on skrollr instance", function () {
+
+        snSkrollr.init();
+        refresh = spyOn(serviceProvider.skrollrInstance, "refresh");
+        snSkrollr.refresh();
+        expect(refresh).toHaveBeenCalled();
 
     });
 
@@ -83,9 +90,6 @@ describe("directive: snSkrollr", function() {
         scope = $rootScope.$new();
 
         snSkrollr = $injector.get("snSkrollr");
-        snSkrollr.skrollr = {
-            refresh: function() { return }
-        }
         spy = spyOn(snSkrollr, "refresh");
 
         element =
