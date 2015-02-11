@@ -84,7 +84,7 @@ module.exports = function (grunt) {
                     "tests/unit/**/*.js",
                     "tests/unit/**/**/*.js"
                 ],
-                tasks: ["test"]
+                tasks: ["test:development"]
             }
         },
 
@@ -336,12 +336,12 @@ module.exports = function (grunt) {
         "watch"
     ]);
 
-    grunt.registerTask("test", [
+    grunt.registerTask("test:development", [
         "jshint",
         "jasmine:development"
     ]);
 
-    grunt.registerTask("test:ci", [
+    grunt.registerTask("test", [
         "clean:beforeBuild",
         "jshint",
         "uglify",
