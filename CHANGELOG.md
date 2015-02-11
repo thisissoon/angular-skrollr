@@ -1,3 +1,7 @@
+## Changes in 0.0.4
+
+ * @jamesjwarren: Fix: call destroy on skrollr instance (#8)
+
 ## Changes in 0.0.3
 
  * @jamesjwarren: Feature: destroy (#7)
