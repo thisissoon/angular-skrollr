@@ -173,28 +173,25 @@ module.exports = function (grunt) {
 
         concat: {
             options: {
-                separator: ";"
+                separator: ";",
+                banner: "/*! <%= pkg.name %> - v<%= pkg.version %> - " +
+                    "<%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
             },
             production: {
-                src: [
-                    "<%= config.applicationFiles %>"
-                ],
+                src: [ "<%= config.applicationFiles %>" ],
                 dest: "<%= config.outputDir %><%= pkg.name %>.js"
             }
         },
 
         uglify: {
             options: {
-                enclose: {
-                    window: "window"
-                }
+                enclose: { window: "window" },
+                banner: "/*! <%= pkg.name %> - v<%= pkg.version %> - " +
+                    "<%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
             },
             production: {
                 files: {
-                    "<%= config.outputDir %><%= pkg.name %>.min.js":
-                    [
-                        "<%= config.applicationFiles %>"
-                    ]
+                    "<%= config.outputDir %><%= pkg.name %>.min.js": [ "<%= config.applicationFiles %>" ]
                 }
             }
         },
@@ -270,14 +267,23 @@ module.exports = function (grunt) {
         },
 
         bump: {
-            options: {
-                files: ["package.json", "bower.json"],
-                updateConfigs: ["pkg"],
-                commit: true,
-                commitFiles: ["-a"],
-                createTag: true,
-                push: true,
-                pushTo: "origin master"
+            beforeRelease: {
+                options: {
+                    files: ["package.json", "bower.json"],
+                    updateConfigs: ["pkg"],
+                    commit: false,
+                    createTag: false,
+                    push: false
+                }
+            },
+            afterRelease: {
+                options: {
+                    commit: true,
+                    commitFiles: ["-a"],
+                    createTag: true,
+                    push: true,
+                    pushTo: "origin master"
+                }
             }
         }
 
@@ -303,13 +309,13 @@ module.exports = function (grunt) {
         "jshint",
         "concat",
         "uglify",
-        "jasmine:production",
         "yuidoc"
     ]);
 
     grunt.registerTask("release", [
+        "bump:beforeRelease",
         "build",
-        "bump"
+        "bump:afterRelease"
     ]);
 
     grunt.registerTask("server", [
@@ -333,6 +339,13 @@ module.exports = function (grunt) {
     grunt.registerTask("test", [
         "jshint",
         "jasmine:development"
+    ]);
+
+    grunt.registerTask("test:ci", [
+        "clean:beforeBuild",
+        "jshint",
+        "uglify",
+        "jasmine:production"
     ]);
 
     grunt.registerTask("e2e", [
