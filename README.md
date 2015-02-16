@@ -16,10 +16,10 @@ bower install skrollr
 ## Usage
 
 ```js
-// 1. configure skrollr in your apps config
+// 1. configure skrollr in your app config
 var myApp = angular.module('myApp', []);
 myApp.config(["snSkrollrProvider", function(snSkrollrProvider) {
-  snSkrollrProvider.config({ smoothScrolling: true, ... });
+  snSkrollrProvider.config = { smoothScrolling: true, ... };
 }]);
 
 // 2. initialise skrollr at runtime
@@ -40,7 +40,9 @@ myApp.run(["snSkrollr", function(snSkrollr) {
   ...
 </div>
 ```
+For more information on the skrollr configuration options that may be set in step one [check out this list](https://github.com/Prinzhorn/skrollr#skrollrinitoptions).
 
+---
 
 This project structure is based on the [angular-seed](https://github.com/angular/angular-seed) application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 
