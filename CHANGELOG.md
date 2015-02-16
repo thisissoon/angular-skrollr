@@ -1,3 +1,8 @@
+## Changes in 0.0.5
+
+ * @eopa: update documentation (no PR)
+ * @jamesjwarren: Fix: update docs (#12)
+
 ## Changes in 0.0.4
 
  * @jamesjwarren: Fix: call destroy on skrollr instance (#8)
