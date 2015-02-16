@@ -96,7 +96,7 @@ folders in your project.
 
 We install our frontend libraries via `bower`, a [client-side code package manager][bower].
 
-All frontend depenancies such as angular will be installed when running `npm install`. To manully install all depenancies run:
+All frontend depenancies such as angular will be installed when running `npm install`. To manually install all dependencies run:
 
 ```
 bower install
@@ -131,7 +131,7 @@ If you are doing any javascript development you can instead run:
 grunt serverjs
 ```
 
-To run tests as well everytime a javascript file is updated
+To run tests as well every time a javascript file is updated
 
 To watch all files run:
 
