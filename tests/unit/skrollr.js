@@ -46,8 +46,12 @@ describe("snSkrollrProvider", function () {
 
     it("should call skrollr init", function () {
         rootScope.$$phase = true;
+        snSkrollr.init({ smoothScrolling: false });
+        expect(spy).toHaveBeenCalledWith({ smoothScrolling: false });
+        expect(serviceProvider.hasBeenInitialised).toEqual(true);
+
         snSkrollr.init();
-        expect(spy).toHaveBeenCalledWith({ smoothScrolling: true });
+        expect(spy.calls.argsFor(1)).toEqual([{ smoothScrolling: true }]);
         expect(serviceProvider.hasBeenInitialised).toEqual(true);
     });
 
