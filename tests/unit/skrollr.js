@@ -45,7 +45,7 @@ describe("snSkrollrProvider", function () {
     });
 
     it("should call skrollr init", function () {
-
+        rootScope.$$phase = true;
         snSkrollr.init();
         expect(spy).toHaveBeenCalledWith({ smoothScrolling: true });
         expect(serviceProvider.hasBeenInitialised).toEqual(true);
@@ -79,10 +79,21 @@ describe("snSkrollrProvider", function () {
 
     });
 
+     it("should NOT call refresh on skrollr instance", function () {
+
+        snSkrollr.init();
+        snSkrollr.destroy();
+        refresh = spyOn(serviceProvider.skrollrInstance, "refresh");
+        snSkrollr.refresh();
+        expect(serviceProvider.hasBeenInitialised).toBe(false);
+        expect(refresh).not.toHaveBeenCalled();
+
+    });
+
 });
 
 describe("directive: snSkrollr", function() {
-    var element, scope, isolatedScope, snSkrollr, spy;
+    var element, scope, isolatedScope, snSkrollr, spy, timeout;
 
     beforeEach(module("sn.skrollr"));
 
@@ -92,6 +103,8 @@ describe("directive: snSkrollr", function() {
         snSkrollr = $injector.get("snSkrollr");
         spy = spyOn(snSkrollr, "refresh");
 
+        timeout = $injector.get("$timeout");
+
         element =
             "<sn-skrollr>" +
                 "<div id=\"elem1\"></div>" +
@@ -99,6 +112,8 @@ describe("directive: snSkrollr", function() {
 
         element = $compile(element)(scope);
         scope.$digest();
+
+        timeout.flush();
 
     }));
 
