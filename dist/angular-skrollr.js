@@ -1,4 +1,4 @@
-/*! angular-skrollr - v0.1.0 - 2015-06-24 */
+/*! angular-skrollr - v0.1.1 - 2015-06-24 */
 "use strict";
 /**
  * Wrap skrollr.js
@@ -62,10 +62,10 @@ angular.module("sn.skrollr", [])
                  * Initialise skrollrjs with config options
                  * @method init
                  */
-                init: function() {
+                init: function(config) {
 
-                    var skrollrInit = function skrollrInit(config){
-                        var skrollrConfig = config ? config : _this.config;
+                    var skrollrConfig = config ? config : _this.config,
+                        skrollrInit = function skrollrInit(){
                         _this.skrollrInstance = $window.skrollr.init(skrollrConfig);
                         _this.hasBeenInitialised = true;
                         _this.serviceMethods.refresh();
