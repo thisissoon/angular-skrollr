@@ -112,15 +112,20 @@ angular.module("sn.skrollr", [])
  * @class  snSkrollr
  */
 .directive("snSkrollr", [
+    "$timeout",
     "snSkrollr",
     /**
      * @constructor
      */
-    function (snSkrollr){
+    function ($timeout, snSkrollr){
         return {
             restrict: "AE",
             link: function($scope, $element) {
-                snSkrollr.refresh();
+
+                // delay refresh to allow time
+                // for template to render
+                $timeout(snSkrollr.refresh, 500);
+
             }
         };
     }
