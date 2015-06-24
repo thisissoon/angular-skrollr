@@ -1,3 +1,7 @@
+## Changes in 0.1.1
+
+ * @bcmrbvm: Fix: Correctly send argument to skrollr init  (#18)
+
 ## Changes in 0.1.0
 
  * @bcmrbvm: Feature: Initialise skrollr at run stage (#16)
