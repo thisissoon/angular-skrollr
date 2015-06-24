@@ -1,6 +1,11 @@
+## Changes in 0.1.0
+
+ * @bcmrbvm: Feature: Initialise skrollr at run stage (#16)
+ * @bcmrbvm: Feature: Delay refresh (#15)
+
 ## Changes in 0.0.5
 
- * @eopa: update documentation (no PR)
+ * @bcmrbvm: update documentation (no PR)
  * @jamesjwarren: Fix: update docs (#12)
 
 ## Changes in 0.0.4
@@ -13,7 +18,7 @@
 
 ## Changes in 0.0.2
 
- * @eopa: Feature/fix travis deployment config (#6)
+ * @bcmrbvm: Feature/fix travis deployment config (#6)
  * @jamesjwarren: Fix: skrollr refresh (#4)
  * @jamesjwarren: Feature: travis deploy (#3)
 

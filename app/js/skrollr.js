@@ -63,8 +63,9 @@ angular.module("sn.skrollr", [])
                  */
                 init: function() {
 
-                    var skrollrInit = function skrollrInit(){
-                        _this.skrollrInstance = $window.skrollr.init(_this.config);
+                    var skrollrInit = function skrollrInit(config){
+                        var skrollrConfig = config ? config : _this.config;
+                        _this.skrollrInstance = $window.skrollr.init(skrollrConfig);
                         _this.hasBeenInitialised = true;
                         _this.serviceMethods.refresh();
                     };
@@ -112,15 +113,20 @@ angular.module("sn.skrollr", [])
  * @class  snSkrollr
  */
 .directive("snSkrollr", [
+    "$timeout",
     "snSkrollr",
     /**
      * @constructor
      */
-    function (snSkrollr){
+    function ($timeout, snSkrollr){
         return {
             restrict: "AE",
             link: function($scope, $element) {
-                snSkrollr.refresh();
+
+                // delay refresh to allow time
+                // for template to render
+                $timeout(snSkrollr.refresh, 500);
+
             }
         };
     }
