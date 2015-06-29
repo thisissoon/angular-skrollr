@@ -1,3 +1,7 @@
+## Changes in 0.1.3
+
+ * @bcmrbvm: Fix: Deleted dist file
+
 ## Changes in 0.1.2
 
  * @bcmrbvm: Improvement: Refresh single element (#20)
