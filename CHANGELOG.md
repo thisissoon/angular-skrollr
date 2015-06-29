@@ -1,3 +1,7 @@
+## Changes in 0.1.2
+
+ * @bcmrbvm: Improvement: Refresh single element (#20)
+
 ## Changes in 0.1.1
 
  * @bcmrbvm: Fix: Correctly send argument to skrollr init  (#18)
