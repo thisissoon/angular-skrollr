@@ -85,9 +85,9 @@ angular.module("sn.skrollr", [])
                  * Useful for resetting skrollr after modifying the DOM
                  * @method refresh
                  */
-                refresh: function() {
+                refresh: function($element) {
                     if (_this.hasBeenInitialised) {
-                        _this.skrollrInstance.refresh();
+                        _this.skrollrInstance.refresh($element);
                     }
                 },
 
@@ -125,7 +125,9 @@ angular.module("sn.skrollr", [])
 
                 // delay refresh to allow time
                 // for template to render
-                $timeout(snSkrollr.refresh, 500);
+                $timeout(function(){
+                    snSkrollr.refresh($element);
+                }, 100);
 
             }
         };
