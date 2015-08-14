@@ -1,7 +1,12 @@
-## Changes in 0.1.3
+## Changes in 0.1.4
 
  * @edwardoparearyee: Fix: Angular dependancies  (#24)
  * @edwardoparearyee: Fix: Usage documentation (#23)
+
+## Changes in 0.1.3
+
+ * @edwardoparearyee: Fix: Deleted dist file
+
 
 ## Changes in 0.1.2
 
