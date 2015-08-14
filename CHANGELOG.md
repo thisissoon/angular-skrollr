@@ -1,23 +1,29 @@
+## Changes in 0.1.4
+
+ * @edwardoparearyee: Fix: Angular dependancies  (#24)
+ * @edwardoparearyee: Fix: Usage documentation (#23)
+
 ## Changes in 0.1.3
 
- * @bcmrbvm: Fix: Deleted dist file
+ * @edwardoparearyee: Fix: Deleted dist file
+
 
 ## Changes in 0.1.2
 
- * @bcmrbvm: Improvement: Refresh single element (#20)
+ * @edwardoparearyee: Improvement: Refresh single element (#20)
 
 ## Changes in 0.1.1
 
- * @bcmrbvm: Fix: Correctly send argument to skrollr init  (#18)
+ * @edwardoparearyee: Fix: Correctly send argument to skrollr init  (#18)
 
 ## Changes in 0.1.0
 
- * @bcmrbvm: Feature: Initialise skrollr at run stage (#16)
- * @bcmrbvm: Feature: Delay refresh (#15)
+ * @edwardoparearyee: Feature: Initialise skrollr at run stage (#16)
+ * @edwardoparearyee: Feature: Delay refresh (#15)
 
 ## Changes in 0.0.5
 
- * @bcmrbvm: update documentation (no PR)
+ * @edwardoparearyee: update documentation (no PR)
  * @jamesjwarren: Fix: update docs (#12)
 
 ## Changes in 0.0.4
@@ -30,7 +36,7 @@
 
 ## Changes in 0.0.2
 
- * @bcmrbvm: Feature/fix travis deployment config (#6)
+ * @edwardoparearyee: Feature/fix travis deployment config (#6)
  * @jamesjwarren: Fix: skrollr refresh (#4)
  * @jamesjwarren: Feature: travis deploy (#3)
 
