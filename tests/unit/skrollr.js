@@ -135,11 +135,11 @@ describe("directive: snSkrollr", function() {
         expect(spy.calls.count()).toBe(1);
 
         angular.element($window).triggerHandler("resize");
-        timeout.flush(50);
+        timeout.flush(200);
         expect(spy.calls.count()).toBe(2);
 
         angular.element($window).triggerHandler("resize");
-        timeout.flush(50);
+        timeout.flush(200);
         expect(spy.calls.count()).toBe(3);
     });
 
@@ -148,11 +148,11 @@ describe("directive: snSkrollr", function() {
         scope.timer = null;
 
         angular.element($window).triggerHandler("scroll");
-        timeout.flush(50);
+        timeout.flush(200);
         expect(spy.calls.count()).toBe(2);
 
         angular.element($window).triggerHandler("scroll");
-        timeout.flush(50);
+        timeout.flush(200);
         expect(spy.calls.count()).toBe(3);
     });
 

@@ -147,7 +147,7 @@ angular.module("sn.skrollr", [])
 
                     $scope.timer = $timeout(function(){
                         snSkrollr.refresh($element);
-                    }, 50);
+                    }, 200);
                 };
 
                 angular.element($window).on("scroll", $scope.onChange);
