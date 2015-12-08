@@ -7,7 +7,7 @@ describe("snSkrollrProvider", function () {
     beforeEach(function () {
 
         // Initialize the service provider by injecting it to a fake module"s config block
-        angular.module("testApp", function () {})
+        angular.module("testApp", [])
             .config(function (snSkrollrProvider) {
                 snSkrollrProvider.config = { smoothScrolling: true };
                 serviceProvider = snSkrollrProvider
