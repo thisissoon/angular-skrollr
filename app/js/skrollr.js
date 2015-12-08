@@ -143,15 +143,15 @@ angular.module("sn.skrollr", [])
                 $scope.onChange = function onChange(){
                     if ($scope.timer) {
                         $timeout.cancel($scope.timer);
-                    };
+                    }
 
                     $scope.timer = $timeout(function(){
                         snSkrollr.refresh($element);
                     }, 50);
-                }
+                };
 
-                angular.element($window).on('scroll', $scope.onChange);
-                angular.element($window).on('resize', $scope.onChange);
+                angular.element($window).on("scroll", $scope.onChange);
+                angular.element($window).on("resize", $scope.onChange);
 
             }
         };
