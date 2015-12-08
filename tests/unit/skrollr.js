@@ -7,7 +7,7 @@ describe("snSkrollrProvider", function () {
     beforeEach(function () {
 
         // Initialize the service provider by injecting it to a fake module"s config block
-        angular.module("testApp", function () {})
+        angular.module("testApp", [])
             .config(function (snSkrollrProvider) {
                 snSkrollrProvider.config = { smoothScrolling: true };
                 serviceProvider = snSkrollrProvider
@@ -97,7 +97,7 @@ describe("snSkrollrProvider", function () {
 });
 
 describe("directive: snSkrollr", function() {
-    var element, scope, isolatedScope, snSkrollr, spy, timeout;
+    var element, scope, isolatedScope, snSkrollr, spy, $window, timeout;
 
     beforeEach(module("sn.skrollr"));
 
@@ -106,6 +106,8 @@ describe("directive: snSkrollr", function() {
 
         snSkrollr = $injector.get("snSkrollr");
         spy = spyOn(snSkrollr, "refresh");
+
+        $window = $injector.get("$window");
 
         timeout = $injector.get("$timeout");
 
@@ -121,8 +123,37 @@ describe("directive: snSkrollr", function() {
 
     }));
 
+    afterEach(function(){
+        timeout.verifyNoPendingTasks();
+    })
+
     it("should refresh skrollr", function (){
         expect(spy).toHaveBeenCalled();
+    });
+
+    it("should refresh skrollr on resize", function (){
+        expect(spy.calls.count()).toBe(1);
+
+        angular.element($window).triggerHandler("resize");
+        timeout.flush(200);
+        expect(spy.calls.count()).toBe(2);
+
+        angular.element($window).triggerHandler("resize");
+        timeout.flush(200);
+        expect(spy.calls.count()).toBe(3);
+    });
+
+    it("should refresh skrollr on resize", function (){
+        expect(spy.calls.count()).toBe(1);
+        scope.timer = null;
+
+        angular.element($window).triggerHandler("scroll");
+        timeout.flush(200);
+        expect(spy.calls.count()).toBe(2);
+
+        angular.element($window).triggerHandler("scroll");
+        timeout.flush(200);
+        expect(spy.calls.count()).toBe(3);
     });
 
 });

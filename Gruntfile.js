@@ -274,7 +274,7 @@ module.exports = function (grunt) {
                 commitFiles: ["-a"],
                 createTag: true,
                 push: true,
-                pushTo: "origin master"
+                pushTo: "origin"
             }
         }
 

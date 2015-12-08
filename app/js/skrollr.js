@@ -114,20 +114,44 @@ angular.module("sn.skrollr", [])
  */
 .directive("snSkrollr", [
     "$timeout",
+    "$window",
     "snSkrollr",
     /**
      * @constructor
      */
-    function ($timeout, snSkrollr){
+    function ($timeout, $window, snSkrollr){
         return {
             restrict: "AE",
             link: function($scope, $element) {
 
-                // delay refresh to allow time
-                // for template to render
-                $timeout(function(){
+                /**
+                 * delay refresh to allow time for
+                 * template to render
+                 * @property timer
+                 */
+                $scope.timer = $timeout(function(){
                     snSkrollr.refresh($element);
                 }, 100);
+
+                /**
+                 * Event handler for scroll and resize. Cancel timer if there
+                 * is an active one and then create a new timer to replace.
+                 * This is so we can wait until the user has finished scrolling
+                 * before calling refresh. This helps with performance.
+                 * @method onChange
+                 */
+                $scope.onChange = function onChange(){
+                    if ($scope.timer) {
+                        $timeout.cancel($scope.timer);
+                    }
+
+                    $scope.timer = $timeout(function(){
+                        snSkrollr.refresh($element);
+                    }, 200);
+                };
+
+                angular.element($window).on("scroll", $scope.onChange);
+                angular.element($window).on("resize", $scope.onChange);
 
             }
         };

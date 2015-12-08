@@ -1,3 +1,8 @@
+## Changes in 0.1.5
+
+ * @edwardoparearyee: Feature: add support for angular 1.4 (#29)
+ * @edwardoparearyee: Fix: Refresh skrollr on resize or scroll (#28)
+
 ## Changes in 0.1.4
 
  * @edwardoparearyee: Fix: Angular dependancies  (#24)
