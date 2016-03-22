@@ -25,6 +25,14 @@
     "parallax",
     "directive"
   ],
+  "files": [
+    "app/js",
+    "dist",
+    "node_modules",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "skrollr": "~0.6.26"
   },
