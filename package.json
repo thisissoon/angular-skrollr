@@ -1,15 +1,34 @@
 {
   "name": "angular-skrollr",
-  "private": true,
+  "private": false,
   "version": "0.1.5",
   "description": "Angular Skrollr wraps the skrollr.js library to provide a mechanisim for configuring, initialising skrollr and calling skrollr.refresh() when the DOM is updated",
-  "repository": "https://github.com/thisissoon/angular-skrollr",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thisissoon/angular-skrollr"
+  },
+  "bugs": { 
+    "url": "https://github.com/thisissoon/angular-skrollr/issues",
+    "email": "dorks@thisissoon.com"
+  },
   "license": "MIT",
+  "author": "SOON_ <dorks@thisissoon.com>",
+  "contributors": [
+    { "name": "Ed Opare-Aryee", "email": "ed@thisissoon.com" },
+    { "name": "James Warren", "email": "james@thisissoon.com" },
+    { "name": "Kenny Sabir", "email": "kenny.sabir@agriwebb.com" }
+  ],
   "dependencies": {
     "bower": "~1.3.12",
     "grunt": "~0.4.5"
   },
   "main": "dist/angular-skrollr.js",
+  "keywords": [
+    "angular",
+    "skrollr",
+    "parallax",
+    "directive"
+  ],
   "devDependencies": {
     "connect-livereload": "~0.5.0",
     "connect-modrewrite": "~0.7.9",
