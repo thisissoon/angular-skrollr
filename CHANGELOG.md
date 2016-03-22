@@ -1,3 +1,8 @@
+## Changes in 0.1.6
+
+ * @edwardoparearyee: Feature: Publish to NPM (#32)
+ * @Traksewt: add main to package.json (#31)
+
 ## Changes in 0.1.5
 
  * @edwardoparearyee: Feature: add support for angular 1.4 (#29)
