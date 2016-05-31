@@ -1,3 +1,7 @@
+## Changes in 0.1.8
+
+ * @edwardoparearyee: Fix: CI (no PR)
+
 ## Changes in 0.1.7
 
  * @edwardoparearyee: Fix: package.json (#34)
