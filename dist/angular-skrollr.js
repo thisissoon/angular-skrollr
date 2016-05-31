@@ -1,4 +1,4 @@
-/*! angular-skrollr - v0.1.6 - 2016-03-22 */
+/*! angular-skrollr - v0.1.7 - 2016-05-31 */
 "use strict";
 /**
  * Wrap skrollr.js

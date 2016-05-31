@@ -1,8 +1,11 @@
 {
   "name": "angular-skrollr",
-  "description": "Angular Skrollr wraps the skrollr.js library to provide a mechanisim for configuring, initialising skrollr and calling skrollr.refresh() when the DOM is updated",
-  "version": "0.1.6",
-  "repository": "https://github.com/thisissoon/angular-skrollr",
+  "description": "Angular Skrollr wraps the skrollr.js library to provide a mechanisim for calling skrollr.refresh() when the DOM is updated",
+  "version": "0.1.7",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thisissoon/angular-skrollr"
+  },
   "license": "MIT",
   "main": "dist/angular-skrollr.js",
   "ignore": [
@@ -20,7 +23,7 @@
   "private": false,
   "dependencies": {
     "angular": ">= 1.2 < 1.5",
-    "skrollr": "~0.6.29"
+    "skrollr": "0.6.30"
   },
   "devDependencies": {
     "angular-mocks": ">= 1.2 < 1.5"

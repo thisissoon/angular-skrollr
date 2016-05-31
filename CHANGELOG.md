@@ -1,3 +1,7 @@
+## Changes in 0.1.7
+
+ * @edwardoparearyee: Fix: package.json (#34)
+
 ## Changes in 0.1.6
 
  * @edwardoparearyee: Feature: Publish to NPM (#32)
