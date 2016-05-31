@@ -8,9 +8,16 @@ Angular Skrollr wraps the skrollr.js library to provide a mechanisim for configu
 
 ## Install
 
+### using Bower
+
 ```
-bower install angular-skrollr
-bower install skrollr
+bower install --save angular-skrollr
+```
+
+### using NPM
+
+```
+npm install --save angular-skrollr
 ```
 
 ## Usage
