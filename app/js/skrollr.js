@@ -69,7 +69,7 @@ angular.module("sn.skrollr", [])
                  */
                 init: function(config) {
 
-                    if (_this.disableMobile) {
+                    if (_this.disableMobile && _this.serviceMethods.isMobile.any()) {
                         return;
                     }
 
@@ -110,7 +110,11 @@ angular.module("sn.skrollr", [])
                         return $window.navigator.userAgent.match(/IEMobile/i);
                     },
                     any: function() {
-                        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+                        return ( _this.serviceMethods.isMobile.Android() ||
+                                 _this.serviceMethods.isMobile.BlackBerry() ||
+                                 _this.serviceMethods.isMobile.iOS() ||
+                                 _this.serviceMethods.isMobile.Opera() ||
+                                 _this.serviceMethods.isMobile.Windows() );
                     }
                 },
 
