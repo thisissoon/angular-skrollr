@@ -35,6 +35,12 @@ angular.module("sn.skrollr", [])
     this.hasBeenInitialised = false;
 
     /**
+     * Disable skrollr on mobile devices
+     * @property {Boolean} disableMobile
+     */
+    this.disableMobile = false;
+
+    /**
      * Methods returned on snSkrollr service
      * @property {Object} serviceMethods
      */
@@ -63,6 +69,10 @@ angular.module("sn.skrollr", [])
                  */
                 init: function(config) {
 
+                    if (_this.disableMobile && _this.serviceMethods.isMobile.any()) {
+                        return;
+                    }
+
                     var skrollrConfig = config ? config : _this.config,
                         skrollrInit = function skrollrInit(){
                         _this.skrollrInstance = $window.skrollr.init(skrollrConfig);
@@ -78,6 +88,34 @@ angular.module("sn.skrollr", [])
                         }
                     });
 
+                },
+                /**
+                 * http://www.abeautifulsite.net/detecting-mobile-devices-with-javascript/
+                 * @property {Object} isMobile
+                 */
+                isMobile: {
+                    Android: function() {
+                        return $window.navigator.userAgent.match(/Android/i);
+                    },
+                    iOS: function() {
+                        return $window.navigator.userAgent.match(/iPhone|iPad|iPod/i);
+                    },
+                    BlackBerry: function() {
+                        return $window.navigator.userAgent.match(/BlackBerry/i);
+                    },
+                    Opera: function() {
+                        return $window.navigator.userAgent.match(/Opera Mini/i);
+                    },
+                    Windows: function() {
+                        return $window.navigator.userAgent.match(/IEMobile/i);
+                    },
+                    any: function() {
+                        return ( _this.serviceMethods.isMobile.Android() ||
+                                 _this.serviceMethods.isMobile.iOS() ||
+                                 _this.serviceMethods.isMobile.BlackBerry() ||
+                                 _this.serviceMethods.isMobile.Opera() ||
+                                 _this.serviceMethods.isMobile.Windows() );
+                    }
                 },
 
                 /**
