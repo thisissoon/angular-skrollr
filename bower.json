@@ -1,7 +1,7 @@
 {
   "name": "angular-skrollr",
   "description": "Angular Skrollr wraps the skrollr.js library to provide a mechanisim for calling skrollr.refresh() when the DOM is updated",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/thisissoon/angular-skrollr"
