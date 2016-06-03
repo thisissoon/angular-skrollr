@@ -10,6 +10,7 @@ describe("snSkrollrProvider", function () {
         angular.module("testApp", [])
             .config(function (snSkrollrProvider) {
                 snSkrollrProvider.config = { smoothScrolling: true };
+                snSkrollrProvider.disableMobile = true;
                 serviceProvider = snSkrollrProvider
             });
 
@@ -91,6 +92,45 @@ describe("snSkrollrProvider", function () {
         snSkrollr.refresh();
         expect(serviceProvider.hasBeenInitialised).toBe(false);
         expect(refresh).not.toHaveBeenCalled();
+
+    });
+
+    it("should NOT call skrollr init on mobile", function () {
+
+        spy.calls.reset();
+        $window.navigator = {
+          userAgent: "Android"
+        };
+        snSkrollr.init();
+        expect(spy).not.toHaveBeenCalled();
+
+        spy.calls.reset();
+        $window.navigator = {
+          userAgent: "iPad"
+        };
+        snSkrollr.init();
+        expect(spy).not.toHaveBeenCalled();
+
+        spy.calls.reset();
+        $window.navigator = {
+          userAgent: "BlackBerry"
+        };
+        snSkrollr.init();
+        expect(spy).not.toHaveBeenCalled();
+
+        spy.calls.reset();
+        $window.navigator = {
+          userAgent: "Opera Mini"
+        };
+        snSkrollr.init();
+        expect(spy).not.toHaveBeenCalled();
+
+        spy.calls.reset();
+        $window.navigator = {
+          userAgent: "IEMobile"
+        };
+        snSkrollr.init();
+        expect(spy).not.toHaveBeenCalled();
 
     });
 

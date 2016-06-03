@@ -97,11 +97,11 @@ angular.module("sn.skrollr", [])
                     Android: function() {
                         return $window.navigator.userAgent.match(/Android/i);
                     },
-                    BlackBerry: function() {
-                        return $window.navigator.userAgent.match(/BlackBerry/i);
-                    },
                     iOS: function() {
                         return $window.navigator.userAgent.match(/iPhone|iPad|iPod/i);
+                    },
+                    BlackBerry: function() {
+                        return $window.navigator.userAgent.match(/BlackBerry/i);
                     },
                     Opera: function() {
                         return $window.navigator.userAgent.match(/Opera Mini/i);
@@ -111,8 +111,8 @@ angular.module("sn.skrollr", [])
                     },
                     any: function() {
                         return ( _this.serviceMethods.isMobile.Android() ||
-                                 _this.serviceMethods.isMobile.BlackBerry() ||
                                  _this.serviceMethods.isMobile.iOS() ||
+                                 _this.serviceMethods.isMobile.BlackBerry() ||
                                  _this.serviceMethods.isMobile.Opera() ||
                                  _this.serviceMethods.isMobile.Windows() );
                     }
