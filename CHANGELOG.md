@@ -1,3 +1,7 @@
+## Changes in 0.2.0
+
+ * @edwardoparearyee: Feature: add mobile detection (#36)
+
 ## Changes in 0.1.8
 
  * @edwardoparearyee: Fix: CI (no PR)
