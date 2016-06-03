@@ -36,6 +36,18 @@ myApp.run(["snSkrollr", function(snSkrollr) {
 
 ```
 
+### Disable on mobile
+```js
+// 1. configure skrollr in your app config
+// and set disableMobile boolean to true
+var myApp = angular.module("myApp", ["sn.skrollr"]);
+myApp.config(["snSkrollrProvider", function(snSkrollrProvider) {
+  snSkrollrProvider.config = { smoothScrolling: true, ... };
+  snSkrollrProvider.disableMobile = true;
+}]);
+
+```
+
 ```html
 <!-- 3. add the sn-skrollr directive, along with skrollr animation attributes, to the elements you wish to animate -->
 <div
