@@ -1,7 +1,7 @@
 {
   "name": "angular-skrollr",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Angular Skrollr wraps the skrollr.js library to provide a mechanisim for configuring, initialising skrollr and calling skrollr.refresh() when the DOM is updated",
   "repository": {
     "type": "git",
@@ -16,7 +16,8 @@
   "contributors": [
     { "name": "Ed Opare-Aryee", "email": "ed@thisissoon.com" },
     { "name": "James Warren", "email": "james@thisissoon.com" },
-    { "name": "Kenny Sabir", "email": "kenny.sabir@agriwebb.com" }
+    { "name": "Kenny Sabir", "email": "kenny.sabir@agriwebb.com" },
+    { "name": "Lars Behnke", "email": "lars.behnke@gmx.net" }
   ],
   "main": "dist/angular-skrollr.js",
   "keywords": [

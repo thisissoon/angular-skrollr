@@ -1,3 +1,7 @@
+## Changes in 0.2.1
+
+ * @lbehnke: Updated angular dependency version (#39)
+
 ## Changes in 0.2.0
 
  * @edwardoparearyee: Feature: add mobile detection (#36)
