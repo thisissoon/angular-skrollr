@@ -270,7 +270,7 @@ For more information on AngularJS please check out http://angularjs.org/
 [grunt]: http://gruntjs.com/
 [node]: http://nodejs.org
 [protractor]: https://github.com/angular/protractor
-[jasmine]: http://pivotal.github.com/jasmine/
+[jasmine]: https://jasmine.github.io/
 [karma]: http://karma-runner.github.io
 [travis]: https://travis-ci.org/
 [http-server]: https://github.com/nodeapps/http-server
