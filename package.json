@@ -35,7 +35,7 @@
     "LICENSE"
   ],
   "dependencies": {
-    "angular": ">= 1.2 < 1.6",
+    "angular": ">= 1.2 < 1.9",
     "skrollr": "~0.6.26"
   },
   "devDependencies": {
