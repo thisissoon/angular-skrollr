@@ -11,3 +11,4 @@ tmp
 .grunt
 *.log
 _SpecRunner.html
+config.bat
